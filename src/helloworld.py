@@ -1,11 +1,16 @@
-from flask import Flask
+#! /usr/bin/python3
+import time
+import schedule
+import sys
+import numpy as np
+import threading
+import logging
+from datetime import datetime
 
-app = Flask(__name__)
-
-
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
+while True:
+    try:
+        logging.info('Hello world')
+        time.sleep(60 * 5) # every 5 minutes (60s = 1m * 5)
+    except (KeyboardInterrupt, SystemExit):
+        logging.info('Shut down')
+        sys.exit()
